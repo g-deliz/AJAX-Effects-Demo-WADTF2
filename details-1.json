@@ -1,0 +1,7 @@
+{
+  "id": 1,
+  "title": "Aurora Lamp",
+  "tag": "Home",
+  "description": "A minimalist lamp with a soft glow. Great for desks and bedrooms.",
+  "specs": { "brightness": "800 lm", "modes": 3, "power": "9W" }
+}

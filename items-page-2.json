@@ -1,0 +1,7 @@
+{
+  "items": [
+    { "id": 4, "title": "Atlas Notebook", "tag": "Work", "summary": "Thick pages for real ideas.", "category": "Stationery" },
+    { "id": 5, "title": "Kite Charger", "tag": "Tech", "summary": "Fast charging in a compact brick.", "category": "Power" }
+  ],
+  "nextPageHint": "Loaded page 2. No more pages after this."
+}

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>AJAX Effects Demo</title>
+    <style>
+      body {
+        font-family: system-ui, Arial, sans-serif;
+        margin: 24px;
+        color: #111;
+      }
+      .row {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .card {
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        padding: 12px;
+        background: #fff;
+      }
+      button {
+        cursor: pointer;
+      }
+      .muted {
+        color: #666;
+        font-size: 13px;
+      }
+      .spinner {
+        width: 18px;
+        height: 18px;
+        border: 3px solid #ddd;
+        border-top-color: #333;
+        border-radius: 50%;
+        display: inline-block;
+        animation: spin 0.7s linear infinite;
+        vertical-align: -3px;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(240px, 1fr));
+        gap: 12px;
+        width: 100%;
+      }
+      .item-title {
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+      .item-meta {
+        font-size: 13px;
+        color: #444;
+        margin-bottom: 10px;
+      }
+      .btn-primary {
+        background: #111;
+        color: #fff;
+        border: 0;
+        border-radius: 10px;
+        padding: 10px 12px;
+      }
+      .btn-ghost {
+        background: #f3f3f3;
+        border: 0;
+        border-radius: 10px;
+        padding: 10px 12px;
+      }
+      .btn-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 12px;
+      }
+      .error {
+        color: #b00020;
+        margin-top: 10px;
+      }
+      /* Modal */
+      .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+      }
+      .modal {
+        width: min(720px, 100%);
+        background: #fff;
+        border-radius: 16px;
+        padding: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+      .close-x {
+        border: 0;
+        background: #f3f3f3;
+        border-radius: 10px;
+        padding: 8px 10px;
+      }
+      pre {
+        background: #f7f7f7;
+        padding: 10px;
+        border-radius: 12px;
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>AJAX Effects Demo</h1>
+    <p class="muted">
+      Mock JSON + fetch() showing loading UI, rendering, and error handling.
+    </p>
+
+    <div class="row">
+      <!-- LOAD MORE DEMO -->
+      <section class="card" style="flex: 1 1 520px">
+        <h2 style="margin-top: 0">1) Load more (AJAX append)</h2>
+
+        <div class="btn-row">
+          <button id="btnLoadMore" class="btn-primary">Load more</button>
+          <div id="loadMoreStatus" class="muted"></div>
+        </div>
+
+        <div id="loadMoreError" class="error" style="display: none"></div>
+
+        <div id="itemsGrid" class="grid" style="margin-top: 14px"></div>
+      </section>
+
+      <!-- QUICK HELP / MODAL DEMO -->
+      <section class="card" style="flex: 0 1 380px">
+        <h2 style="margin-top: 0">2) Modal load details (AJAX-on-click)</h2>
+        <p class="muted">
+          Click “View details” on any item to fetch a details JSON and open the
+          modal.
+        </p>
+        <p class="muted">
+          This demonstrates: click → fetch → fill UI → show modal.
+        </p>
+        <div class="muted" style="margin-top: 12px">
+          Tip: Open DevTools → Network to see the JSON requests.
+        </div>
+      </section>
+    </div>
+
+    <!-- MODAL -->
+    <div
+      id="modalBackdrop"
+      class="modal-backdrop"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="modal">
+        <div class="modal-header">
+          <div>
+            <h3 id="modalTitle" style="margin: 0">Item details</h3>
+            <div id="modalSubtitle" class="muted" style="margin-top: 4px"></div>
+          </div>
+          <button id="btnCloseModal" class="close-x" aria-label="Close">
+            Close
+          </button>
+        </div>
+
+        <div id="modalBody" style="margin-top: 12px">
+          <div id="modalLoading" class="muted" style="display: none">
+            <span class="spinner" aria-hidden="true"></span> Loading...
+          </div>
+          <div id="modalError" class="error" style="display: none"></div>
+
+          <div id="modalContent" style="display: none">
+            <p id="modalDescription" style="margin: 0 0 10px"></p>
+            <pre id="modalRaw" style="margin: 0"></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "id": 4,
+  "title": "Atlas Notebook",
+  "tag": "Work",
+  "description": "Lay-flat notebook with durable pages for notes, sketches, and plans.",
+  "specs": { "pages": 192, "paper": "dot grid", "binding": "lay-flat" }
+}

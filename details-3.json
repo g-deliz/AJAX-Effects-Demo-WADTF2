@@ -1,0 +1,7 @@
+{
+  "id": 3,
+  "title": "Orbit Mouse",
+  "tag": "Tech",
+  "description": "Ergonomic mouse with a comfortable grip and accurate cursor movement.",
+  "specs": { "dpi": "800-2400", "buttons": 6, "connectivity": "wireless" }
+}

@@ -1,0 +1,7 @@
+{
+  "id": 5,
+  "title": "Kite Charger",
+  "tag": "Tech",
+  "description": "Compact charger that keeps your devices ready all day.",
+  "specs": { "output": "20W", "ports": 2, "cableIncluded": false }
+}

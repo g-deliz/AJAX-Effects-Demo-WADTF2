@@ -1,0 +1,8 @@
+{
+  "items": [
+    { "id": 1, "title": "Aurora Lamp", "tag": "Home", "summary": "Warm light, modern feel.", "category": "Lighting" },
+    { "id": 2, "title": "Nimbus Bottle", "tag": "Outdoor", "summary": "Cold stays cold for hours.", "category": "Hydration" },
+    { "id": 3, "title": "Orbit Mouse", "tag": "Tech", "summary": "Smooth tracking, quiet clicks.", "category": "Accessories" }
+  ],
+  "nextPageHint": "Loaded page 1. Click “Load more” for more."
+}
